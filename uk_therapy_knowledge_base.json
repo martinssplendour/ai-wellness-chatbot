@@ -1,0 +1,86 @@
+[
+  {
+    "situation": "Overwhelmed by a demanding job with tight deadlines",
+    "analysis": "This may reflect chronic stress due to perceived lack of control, potentially linked to the Yerkes-Dodson Law where moderate stress enhances performance, but excessive stress impairs it. Cognitive overload or perfectionism could exacerbate the issue.",
+    "potential_errors": "Overcommitting without boundaries, ignoring physiological stress signals, falling into the sunk cost fallacy by persisting with ineffective methods.",
+    "improvement_strategies": "Apply Cognitive Behavioral Therapy (CBT) to challenge perfectionist thoughts, use time-blocking with the Pomodoro technique, practice mindfulness to regulate stress (e.g., 10-minute daily meditation), and negotiate workload with a supervisor.",
+    "resources": "Book: 'The Stress Solution' by Dr. Rangan Chatterjee (stress management), Book: 'Thinking, Fast and Slow' by Daniel Kahneman (cognitive biases), Book: 'Man's Search for Meaning' by Viktor Frankl (resilience), NHS stress management tools, British Psychological Society (BPS) resources"
+  },
+  {
+    "situation": "Frequent misunderstandings in a romantic relationship",
+    "analysis": "This could stem from differing attachment styles (e.g., anxious or avoidant per attachment theory) or poor emotional regulation. Miscommunication often arises from unexpressed needs or projection of past experiences.",
+    "potential_errors": "Assuming partner’s intentions without clarification, engaging in blame-shifting, neglecting emotional self-awareness.",
+    "improvement_strategies": "Practice active listening and validate partner’s feelings, use Gottman Method techniques (e.g., soft startups for discussions), explore personal attachment patterns through journaling, attend couples therapy if needed.",
+    "resources": "Book: 'Attached' by Amir Levine and Rachel Heller (attachment theory), Book: 'The Seven Principles for Making Marriage Work' by John Gottman (relationship skills), Book: 'Hold Me Tight' by Dr. Sue Johnson (emotionally focused therapy), Relate UK, Mind UK"
+  },
+  {
+    "situation": "Low self-esteem after receiving criticism at work",
+    "analysis": "This may indicate a vulnerability to external validation, possibly rooted in self-worth contingencies (per Self-Determination Theory). Criticism might trigger a fixed mindset, reinforcing negative self-narratives.",
+    "potential_errors": "Internalizing feedback as personal failure, avoiding future risks due to fear of failure, comparing self to others.",
+    "improvement_strategies": "Adopt a growth mindset (Carol Dweck’s framework), use self-compassion exercises (e.g., Kristin Neff’s techniques), reframe criticism as constructive using CBT, seek mentor feedback for balance.",
+    "resources": "Book: 'Mindset' by Carol Dweck (growth mindset), Book: 'Self-Compassion' by Kristin Neff (self-esteem), Book: 'The Gifts of Imperfection' by Brené Brown (vulnerability), NHS self-help guides, BPS psychological well-being resources"
+  },
+  {
+    "situation": "Avoiding social interactions due to social anxiety",
+    "analysis": "This aligns with social anxiety disorder traits, where anticipatory anxiety (per Beck’s cognitive triad) distorts perceived social threats. Avoidance reinforces the anxiety cycle through negative reinforcement.",
+    "potential_errors": "Overgeneralizing past social failures, catastrophizing potential outcomes, relying solely on safety behaviors (e.g., avoiding eye contact).",
+    "improvement_strategies": "Gradual exposure therapy starting with low-stakes interactions, practice diaphragmatic breathing to manage physiological arousal, challenge negative thoughts with Socratic questioning, consider CBT with a therapist.",
+    "resources": "Book: 'The Anxiety and Phobia Workbook' by Edmund J. Bourne (anxiety management), Book: 'Feeling Good' by David D. Burns (CBT), Book: 'Daring Greatly' by Brené Brown (shame resilience), NHS anxiety support, Anxiety UK"
+  },
+  {
+    "situation": "Procrastinating on important personal goals",
+    "analysis": "This may reflect self-regulation deficits or an avoidance coping mechanism, potentially tied to temporal discounting (valuing immediate rewards over long-term benefits) or fear of failure.",
+    "potential_errors": "Underestimating task complexity, succumbing to instant gratification, setting unrealistic goals without scaffolding.",
+    "improvement_strategies": "Break goals into micro-tasks with the SMART framework, use implementation intentions (e.g., 'If X, then I will Y'), apply self-monitoring with a journal, seek accountability from a peer.",
+    "resources": "Book: 'Atomic Habits' by James Clear (habit formation), Book: 'The Now Habit' by Neil Fiore (procrastination), Book: 'Willpower' by Roy F. Baumeister (self-control), NHS productivity resources, BPS behavior change guides"
+  },
+  {
+    "situation": "Struggling with decision-making under pressure",
+    "analysis": "This may result from decision fatigue or emotional arousal overriding rational thought (per Kahneman’s System 1 and System 2 model), often compounded by a lack of structured decision-making skills.",
+    "potential_errors": "Rushing decisions due to time pressure, over-relying on intuition without evidence, succumbing to analysis paralysis.",
+    "improvement_strategies": "Use a decision matrix to weigh options, practice mindfulness to reduce emotional interference, break decisions into smaller steps, consult a trusted advisor.",
+    "resources": "Book: 'Thinking, Fast and Slow' by Daniel Kahneman (decision-making), Book: 'Decisive' by Chip Heath and Dan Heath (structured choices), Book: 'The Power of Now' by Eckhart Tolle (mindfulness), BPS cognitive psychology resources"
+  },
+  {
+    "situation": "Feeling disconnected from friends or family",
+    "analysis": "This could indicate social isolation or unmet emotional needs, possibly linked to Bowlby’s attachment theory or a decline in reciprocal communication, affecting belongingness (Maslow’s hierarchy).",
+    "potential_errors": "Withdrawing further due to shame, misinterpreting silence as rejection, avoiding vulnerability.",
+    "improvement_strategies": "Initiate small, meaningful interactions, practice empathy with reflective listening, explore underlying attachment issues in therapy, build a support network gradually.",
+    "resources": "Book: 'The Art of Loving' by Erich Fromm (connection), Book: 'Emotional Intelligence' by Daniel Goleman (social skills), Book: 'On Becoming a Person' by Carl Rogers (person-centered therapy), Mind UK, Relate UK"
+  },
+  {
+    "situation": "Experiencing burnout from caregiving responsibilities",
+    "analysis": "Burnout may arise from compassion fatigue or role overload, with psychological depletion linked to Maslach’s burnout model, often neglecting self-care as a priority.",
+    "potential_errors": "Over-identifying with the caregiver role, ignoring personal needs, refusing help due to guilt.",
+    "improvement_strategies": "Set boundaries using assertiveness training, schedule self-care (e.g., 30-minute walks), practice gratitude journaling, seek respite care support.",
+    "resources": "Book: 'The Body Keeps the Score' by Bessel van der Kolk (trauma and recovery), Book: 'Burnout' by Emily Nagoski and Amelia Nagoski (self-care), NHS caregiver support, BPS stress management"
+  },
+  {
+    "situation": "Dealing with grief after losing a loved one",
+    "analysis": "Grief may follow Kübler-Ross’s five stages, with complicated grief indicating unresolved attachment or suppressed emotions, affecting daily functioning.",
+    "potential_errors": "Suppressing emotions to appear strong, isolating to avoid triggering memories, rushing the healing process.",
+    "improvement_strategies": "Engage in grief counseling, use expressive writing to process emotions, join a support group, practice self-compassion during setbacks.",
+    "resources": "Book: 'On Grief and Grieving' by Elisabeth Kübler-Ross (grief stages), Book: 'It’s OK That You’re Not OK' by Megan Devine (grief support), Cruse Bereavement Care, NHS grief resources"
+  },
+  {
+    "situation": "Struggling with anger outbursts in stressful situations",
+    "analysis": "This may reflect poor emotional regulation, possibly tied to the amygdala hijack (Goleman’s emotional intelligence), with underlying triggers like frustration or injustice.",
+    "potential_errors": "Reacting impulsively without pause, blaming others to deflect responsibility, avoiding self-reflection.",
+    "improvement_strategies": "Use the STOP technique (Stop, Take a breath, Observe, Proceed), practice anger management through CBT, identify triggers with a mood log, seek therapy for deep-seated issues.",
+    "resources": "Book: 'Emotional Intelligence' by Daniel Goleman (emotion regulation), Book: 'The Dance of Anger' by Harriet Lerner (anger management), NHS emotional health, Mind UK"
+  },
+  {
+    "situation": "Feeling overwhelmed by daily responsibilities",
+    "analysis": "This may indicate a lack of effective stress management or poor task prioritization, potentially linked to cognitive overload and insufficient self-care, impacting overall well-being.",
+    "potential_errors": "Taking on too many tasks at once, neglecting rest, failing to delegate when possible.",
+    "improvement_strategies": "Take deep breaths to calm the nervous system, break tasks into smaller, manageable steps, practice mindfulness for 5-10 minutes daily, seek support from family or colleagues.",
+    "resources": "Book: 'The Stress Solution' by Dr. Rangan Chatterjee (stress management), NHS mental health resources, British Psychological Society (BPS) resources"
+  },
+  {
+    "situation": "Experiencing anxiety in unfamiliar social settings",
+    "analysis": "This could be tied to heightened arousal from perceived social evaluation, consistent with social anxiety traits, where avoidance reinforces the fear response through negative reinforcement.",
+    "potential_errors": "Avoiding situations entirely, overthinking potential judgments, relying on safety behaviors like staying silent.",
+    "improvement_strategies": "Practice grounding exercises like the 5-4-3-2-1 technique to stay present, use deep breathing to reduce arousal, gradually expose yourself to social settings, consider professional support.",
+    "resources": "Book: 'The Anxiety and Phobia Workbook' by Edmund J. Bourne (anxiety management), Mind UK, Anxiety UK"
+  }
+]

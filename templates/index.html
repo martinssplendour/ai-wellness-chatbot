@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Therapist</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #e0f2f7;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #avatar-container {
+      flex: 0 0 auto;
+      height: 76.8vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: #e0f2f7;
+      position: relative;
+    }
+
+    #avatar-wrapper {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #avatar-intro, #avatar-talk {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      display: none;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #conversation {
+      flex: 1;
+      padding: 20px;
+      background-color: #ffffff;
+      overflow-y: auto;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 0.375rem;
+      resize: none;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 10px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #357ab7;
+    }
+
+    #result {
+      margin-top: 10px;
+      white-space: pre-wrap;
+      color: #1f2937;
+    }
+
+    .disclaimer {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div id="avatar-container">
+    <div id="avatar-wrapper">
+      <video id="avatar-intro" muted autoplay>
+        <source src="{{ url_for('static', filename='therapist_video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <video id="avatar-talk" muted>
+        <source id="talk-video-source" src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <div id="conversation">
+    <textarea id="scenario" rows="2" placeholder="Share how you feel (e.g., I feel overwhelmed with work) or click the mic 🎙️ to speak."></textarea>
+    <div class="buttons">
+      <button onclick="startListening()">🎙️ Speak</button>
+      <button onclick="analyzeScenario()">Listen</button>
+      <button onclick="stopSpeaking()">Stop</button>
+      <button onclick="resetConversation()">Reset</button>
+    </div>
+    <div id="result"></div>
+    <p class="disclaimer">This is not professional advice.</p>
+  </div>
+
+  <script>
+    let isSpeaking = false;
+    let conversationHistory = [];
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const introVideo = document.getElementById("avatar-intro");
+      introVideo.style.display = "block";
+      introVideo.play();
+
+      setTimeout(() => {
+        speakText("Hello?");
+      }, 3500);
+    });
+
+    async function analyzeScenario() {
+      const scenario = document.getElementById("scenario").value;
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "Listening...";
+
+      conversationHistory.push({ role: "user", content: scenario });
+
+      try {
+        const response = await fetch("/analyze", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ scenario, history: conversationHistory })
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+          resultDiv.innerHTML = `Error: ${data.error}`;
+        } else {
+          resultDiv.innerHTML = data.result;
+          conversationHistory.push({ role: "assistant", content: data.result });
+          speakText(data.result);
+        }
+      } catch (error) {
+        resultDiv.innerHTML = `Error: ${error.message}`;
+      }
+    }
+
+    function startListening() {
+      if (!('webkitSpeechRecognition' in window)) {
+        alert("Your browser does not support speech recognition. Try using Chrome.");
+        return;
+      }
+
+      const recognition = new webkitSpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = 'en-GB';
+
+      let silenceTimer;
+
+      recognition.onstart = () => {
+        clearTimeout(silenceTimer);
+      };
+
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById("scenario").value = transcript;
+        analyzeScenario();
+      };
+
+      recognition.onend = () => {
+        silenceTimer = setTimeout(() => {
+          recognition.stop();
+        }, 3000);
+      };
+
+      recognition.onerror = function (event) {
+        alert("Speech recognition error: " + event.error);
+      };
+
+      recognition.start();
+    }
+
+    function speakText(text) {
+      const introVideo = document.getElementById("avatar-intro");
+      const talkVideo = document.getElementById("avatar-talk");
+      const talkSource = document.getElementById("talk-video-source");
+
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        const voices = window.speechSynthesis.getVoices();
+
+        utterance.voice = voices.find(v => v.name.includes("Daniel") || v.name.includes("George") || v.lang === "en-GB") || voices[0];
+        utterance.lang = "en-GB";
+        utterance.rate = 1;
+
+        const queue = [];
+        for (let i = 0; i < 10; i++) {
+          queue.push(`/static/therapy${Math.floor(Math.random() * 10 + 1)}.mp4`);
+        }
+
+        let current = 0;
+
+        const playNextVideo = () => {
+          if (current >= queue.length) return;
+          talkSource.src = queue[current];
+          talkVideo.load();
+          talkVideo.play();
+          current++;
+
+          talkVideo.onended = () => {
+            if (isSpeaking) playNextVideo();
+          };
+        };
+
+        utterance.onstart = () => {
+          isSpeaking = true;
+          introVideo.style.display = "none";
+          talkVideo.style.display = "block";
+          playNextVideo();
+        };
+
+        utterance.onend = () => {
+          isSpeaking = false;
+          talkVideo.pause();
+          talkVideo.style.display = "none";
+          introVideo.style.display = "block";
+        };
+
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    function stopSpeaking() {
+      const introVideo = document.getElementById("avatar-intro");
+      const talkVideo = document.getElementById("avatar-talk");
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        talkVideo.pause();
+        talkVideo.style.display = "none";
+        introVideo.style.display = "block";
+      }
+    }
+
+    function resetConversation() {
+      conversationHistory = [];
+      document.getElementById("scenario").value = "";
+      document.getElementById("result").innerHTML = "";
+    }
+  </script>
+</body>
+</html>
