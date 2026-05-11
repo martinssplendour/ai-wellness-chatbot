@@ -6,6 +6,22 @@ AI Wellness Chatbot is a Flask prototype for supportive, wellness-oriented conve
 
 The app provides a simple web interface where a user can enter a wellbeing-related message and receive a supportive AI-generated response. The backend can combine the user message with local knowledge-base context before calling the language model. The project is useful as a compact example of Flask routing, environment-based API configuration, template rendering, and safe framing for sensitive AI use cases.
 
+## The Work Behind The Project
+
+This project started from several local AI therapist experiments and was cleaned into a safer public wellness-chatbot repository. The important work was not just putting a language model behind a text box; it was reframing the product, removing logs, separating secrets, and documenting the limitations clearly.
+
+The backend uses Flask to serve the web page and process user messages. A local JSON knowledge base provides support context that can be injected into the model prompt, giving the app a simple retrieval-style pattern without requiring a separate vector database. API keys are read from environment variables so the public repo can be shared without exposing credentials.
+
+The project was also deliberately renamed and documented as a wellness chatbot rather than a therapy product. That matters because mental-health-adjacent tools can create user trust they have not earned. The README and codebase avoid presenting the project as diagnosis, treatment, crisis support, or a replacement for professional care.
+
+## Response Flow
+
+1. The user submits a message through the HTML form.
+2. Flask receives the request in `tbackend.py`.
+3. The app can load relevant support context from `uk_therapy_knowledge_base.json`.
+4. The backend builds a model prompt with safety-aware framing.
+5. The language model response is returned to the template for display.
+
 ## Key Features
 
 - Flask web application.
@@ -23,6 +39,15 @@ The app provides a simple web interface where a user can enter a wellbeing-relat
 - OpenAI API
 - HTML templates
 - JSON knowledge base
+
+## What This Demonstrates
+
+- Flask application structure for a small AI web app.
+- Environment-based secret handling through `.env.example`.
+- Use of local structured knowledge as prompt context.
+- Public cleanup of conversation logs and virtual environments.
+- Safety-conscious product framing for sensitive AI interactions.
+- Simple WSGI deployment readiness.
 
 ## Repository Structure
 
